@@ -4,7 +4,7 @@ from ansible.module_utils.basic import *
 from collections import OrderedDict
 import os.path
 import subprocess
-import ConfigParser
+import configparser
 import shutil
 
 class FirefoxConfigWrapper:
@@ -27,7 +27,7 @@ class FirefoxProfiles:
     def __init__(self, path):
         self.path = os.path.expanduser(path)
         self.profiles_ini = os.path.join(self.path, 'profiles.ini')
-        self.config = ConfigParser.RawConfigParser()
+        self.config = configparser.RawConfigParser()
         # Make options case sensitive
         self.config.optionxform = str
         self.read()
@@ -42,7 +42,7 @@ class FirefoxProfiles:
 
     def write(self):
         # Reorder the current sections, otherwise firefox deletes them on start.
-        new = ConfigParser.ConfigParser()
+        new = configparser.ConfigParser()
         new.optionxform = str
         new.add_section('General')
         for item in self.config.items('General'):
