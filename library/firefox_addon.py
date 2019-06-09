@@ -72,7 +72,7 @@ class FirefoxProfiles:
         self.config.read(self.profiles_ini)
         self.sections = OrderedDict()
         for section in self.config.sections():
-            if section != 'General':
+            if section.startswith('Profile'):
                 profile = dict(self.config.items(section))
                 self.sections[profile['Name']] = section
 

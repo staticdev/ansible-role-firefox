@@ -1,25 +1,6 @@
-- name: create profiles
-  firefox_profile:
-    name: "{{ item.name }}"
-    state: present
-  become: no
+- name: Configure profiles
+  include_tasks: configure_profile.yml
+  vars:
+    firefox_profile: "{{ item }}"
   with_items: "{{ firefox_profiles }}"
-  register: profiles
-
-- name: install extensions
-  firefox_addon:
-    name: "{{ item.1 }}"
-    state: present
-    profile: "{{ item.0.name }}"
-  become: no
-  with_subelements:
-    - "{{ firefox_profiles }}"
-    - extensions
-
-- name: set preferences
-  template:
-    src: templates/user.js.j2
-    dest: "{{item.profile_path }}/user.js"
-  with_items: "{{ profiles.results }}"
-  when: firefox_preferences or firefox_profile_preferences[item.profile_name] is defined
-  become: no
+  tags: firefox

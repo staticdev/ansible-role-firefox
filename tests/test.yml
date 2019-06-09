@@ -1,20 +1,19 @@
 - hosts: localhost
-  become: yes
 
   vars:
     firefox_profiles:
-      - name: alice
+      - name: default
         extensions:
-          - random-agent-spoofer
-      - name: bob
-        extensions: []
-    firefox_preferences:
-      browser.safebrowsing.enabled: 'true'
-      geo.ip: 'false'
-    firefox_profile_preferences:
-      alice:
-        browser.safebrowsing.enabled: 'false'
-        browser.safebrowsing.malware.enabled: 'false'
+          - ublock-origin
+        preferences:
+          - name: privacy.donottrackheader.enabled
+            value: true
+          - name: privacy.trackingprotection.enabled
+            value: true
+          - name: signon.rememberSignons
+            value: false
+          - name: datareporting.healthreport.uploadEnabled
+            value: false
 
   roles:
     - firefox
