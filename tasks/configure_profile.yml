@@ -7,8 +7,8 @@
 - name: Install extensions
   firefox_addon:
     name: "{{ item }}"
+    profile_path: "{{ create_profile.profile_path }}"
     state: present
-    profile: "{{ create_profile.profile_name }}"
   with_items:
     - "{{ firefox_profile.extensions }}"
 

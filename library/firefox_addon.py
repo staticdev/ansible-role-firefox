@@ -57,41 +57,10 @@ class FirefoxExtension:
         os.remove(self.destination)
 
 
-class FirefoxProfiles:
-    """Class to manage firefox profiles."""
-
-    def __init__(self, path):
-        self.path = os.path.expanduser(path)
-        self.profiles_ini = os.path.join(self.path, 'profiles.ini')
-        self.config = configparser.RawConfigParser()
-        # Make options case sensitive
-        self.config.optionxform = str
-        self.read()
-
-    def read(self):
-        self.config.read(self.profiles_ini)
-        self.sections = OrderedDict()
-        for section in self.config.sections():
-            if section.startswith('Profile'):
-                profile = dict(self.config.items(section))
-                self.sections[profile['Name']] = section
-
-    def get(self, name):
-        if name in self.sections:
-            return dict(self.config.items(self.sections[name]))
-
-    def get_path(self, name):
-        profile = self.get(name)
-        if (bool(profile['IsRelative'])):
-            return os.path.join(self.path, profile['Path'])
-        return profile['Path']
-
-
 def main():
     fields = {
         'name': {'required': True, 'type': 'str'},
-        'profile': {'default': 'default', 'type': 'str'},
-        'path': {'default': '~/.mozilla/firefox', 'type': 'str'},
+        'profile_path': {'required': True, 'type': 'str'},
         'state': {
             'default': 'present',
             'choices': ['present', 'absent'],
@@ -99,14 +68,9 @@ def main():
         },
     }
     module = AnsibleModule(argument_spec=fields)
-    profiles = FirefoxProfiles(module.params['path'])
-    profile = profiles.get(module.params['profile'])
+    profile_path = module.params['profile_path']
 
-    if profile is None:
-        module.fail_json(msg='Profile %s not found' % module.params['profile'])
-
-    path = profiles.get_path(module.params['profile'])
-    addon = FirefoxExtension(module.params['name'], path)
+    addon = FirefoxExtension(module.params['name'], profile_path)
     changed = False
     result = None
 
