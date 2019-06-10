@@ -1,6 +1,7 @@
 - name: Configure profiles
   include_tasks: configure_profile.yml
   vars:
-    firefox_profile: "{{ item }}"
-  with_items: "{{ firefox_profiles }}"
+    firefox_profile_name: "{{ item.key }}"
+    firefox_profile_values: "{{ item.value }}"
+  with_dict: "{{ firefox }}"
   tags: firefox

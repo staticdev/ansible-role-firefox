@@ -1,19 +1,15 @@
 - hosts: localhost
 
   vars:
-    firefox_profiles:
-      - name: default
+    firefox:
+      default:
         extensions:
           - ublock-origin
         preferences:
-          - name: privacy.donottrackheader.enabled
-            value: true
-          - name: privacy.trackingprotection.enabled
-            value: true
-          - name: signon.rememberSignons
-            value: false
-          - name: datareporting.healthreport.uploadEnabled
-            value: false
+          privacy.donottrackheader.enabled: "true"
+          privacy.trackingprotection.enabled: "true"
+          signon.rememberSignons: "false"
+          datareporting.healthreport.uploadEnabled: "false"
 
   roles:
     - firefox

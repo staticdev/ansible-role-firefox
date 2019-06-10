@@ -7,8 +7,7 @@ you set the right packages in `firefox_packages`.
 
 ## Requirements
 
-[xmltodict][0] and [requests][1] are required on the remote host to install
-extensions.
+[requests][0] is required on the remote host to install extensions.
 
 ## Role Variables
 
@@ -82,16 +81,6 @@ will be merged with `firefox_preferences`.
       alice:
         browser.safebrowsing.enabled: 'false'
         browser.safebrowsing.malware.enabled: 'false'
-
-  pre_tasks:
-    - name: install role requirements
-      pip: name={{ item }} state=present
-      with_items:
-        - xmltodict
-        - requests
-
-  roles:
-     - firefox
 ```
 
 License
@@ -101,5 +90,4 @@ GPLv2
 
 
 
-[0]: https://github.com/martinblech/xmltodict "xmltodict"
-[1]: http://docs.python-requests.org/en/master "requests"
+[0]: http://docs.python-requests.org/en/master "requests"
