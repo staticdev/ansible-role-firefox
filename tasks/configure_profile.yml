@@ -1,21 +1,26 @@
 - name: Create profiles
   firefox_profile:
-    name: "{{ firefox_profile_name }}"
+    name: "{{ firefox_profile.key }}"
+    path: "{{ firefox_home }}"
     state: present
   register: create_profile
 
 - name: Install extensions
   firefox_addon:
-    name: "{{ item }}"
+    name: "{{ extension }}"
     profile_path: "{{ create_profile.profile_path }}"
     state: present
   with_items:
-    - "{{ firefox_profile_values.extensions }}"
+    - "{{ firefox_profile.value.extensions }}"
+  loop_control:
+    loop_var: extension
 
 - name: Install user prefs
   lineinfile:
     path: '{{ create_profile.profile_path }}/user.js'
     create: yes
-    regexp: '^user_pref\("{{ item.key }}",\s*\S+?\);\s*$'
-    line: "user_pref(\"{{ item.key }}\", {{ ('\"%s\"' | format(item.value)) if item.value is string else (item.value | lower) }});"
-  with_items: '{{ firefox_profile_values.preferences | default({}) | dict2items }}'
+    regexp: '^user_pref\("{{ pref.key }}",\s*\S+?\);\s*$'
+    line: "user_pref(\"{{ pref.key }}\", {{ ('\"%s\"' | format(pref.value)) if pref.value is string else (pref.value | lower) }});"
+  with_items: '{{ firefox_profile.value.preferences | default({}) | dict2items }}'
+  loop_control:
+    loop_var: pref

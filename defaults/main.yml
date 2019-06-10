@@ -6,17 +6,9 @@ firefox_packages:
   - firefox-locale-en
   - firefox-locale-es
 
-firefox_profiles: []
+firefox: {}
 #  - name: alice
 #    extensions:
 #      - random-agent-spoofer
 #  - name: bob
 #    extensions: []
-
-firefox_preferences: {}
-#  browser.search.defaultenginename: "'DuckDuckGo'"
-
-firefox_profile_preferences: {}
-#  alice:
-#    browser.safebrowsing.enabled: 'false'
-#    browser.safebrowsing.malware.enabled: 'false'
