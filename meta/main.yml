@@ -1,11 +1,12 @@
 ---
 galaxy_info:
-  author: mpv
-  description: "Installs firefox, creates profiles and download extensions."
+  author: basvandenbrink
+  role_name: firefox
+  description: "Create and configure Firefox profiles and download extensions."
   license: GPLv2
   min_ansible_version: 2.0
   platforms:
-    - name: Ubuntu
+    - name: Fedora
   galaxy_tags:
     - workstation
     - system

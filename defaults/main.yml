@@ -1,10 +1,5 @@
 ---
 firefox_home: ~/.mozilla/firefox
-firefox_pkg_state: latest
-firefox_packages:
-  - firefox
-  - firefox-locale-en
-  - firefox-locale-es
 
 firefox: {}
 #  - name: alice

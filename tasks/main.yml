@@ -1,6 +1,6 @@
 - name: Configure profiles
   include_tasks: configure_profile.yml
-  with_dict: "{{ firefox }}"
+  with_dict: "{{ firefox_profiles }}"
   loop_control:
     loop_var: firefox_profile
   tags: firefox
