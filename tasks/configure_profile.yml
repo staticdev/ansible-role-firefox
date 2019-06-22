@@ -4,6 +4,7 @@
     path: "{{ firefox_home }}"
     state: present
   register: create_profile
+  tags: firefox
 
 - name: Install extensions
   firefox_addon:
@@ -14,6 +15,7 @@
     - "{{ firefox_profile.value.extensions }}"
   loop_control:
     loop_var: extension
+  tags: firefox
 
 - name: Install user prefs
   lineinfile:
@@ -24,3 +26,4 @@
   with_items: '{{ firefox_profile.value.preferences | default({}) | dict2items }}'
   loop_control:
     loop_var: pref
+  tags: firefox
