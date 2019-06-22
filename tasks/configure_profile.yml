@@ -17,7 +17,7 @@
 
 - name: Install user prefs
   lineinfile:
-    path: '{{ create_profile.profile_path }}/user.js'
+    path: '{{ create_profile.profile_path }}/prefs.js'
     create: yes
     regexp: '^user_pref\("{{ pref.key }}",\s*\S+?\);\s*$'
     line: "user_pref(\"{{ pref.key }}\", {{ ('\"%s\"' | format(pref.value)) if pref.value is string else (pref.value | lower) }});"
