@@ -81,7 +81,7 @@ class FirefoxProfiles:
             self.write()
 
     def create(self, name):
-        command = 'firefox -no-remote -CreateProfile %s' % name
+        command = 'firefox --headless -no-remote -CreateProfile %s' % name
         p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         (stdout, stderr) = p.communicate()
         if p.returncode != 0:
