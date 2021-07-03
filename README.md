@@ -1,7 +1,7 @@
 # Ansible Role: Firefox
 
-Installs firefox and optionally creates profiles with extensions.
-Extensions are installed but need to be manually enabled from firefox.
+Installs Firefox and optionally creates profiles with extensions.
+Extensions are installed but need to be manually enabled from Firefox.
 
 ## Requirements
 
@@ -49,10 +49,9 @@ The `firefox_profiles` is object with profile names als fields. For each profile
 
 ## Credits
 
-This Ansible role is a heavily modified version of the [Ansible role](https://github.com/unrblt/ansible-role-firefox) created by GitHub user [unrblt](https://github.com/unrblt).
+This Ansible role is a modified version of the [Ansible role](https://github.com/basvandenbrink/ansible-firefox) originally created by GitHub user [unrblt](https://github.com/unrblt) and modified by [basvandenbrink](https://github.com/basvandenbrink).
 
 ## License
-
 
 GPLv2
 

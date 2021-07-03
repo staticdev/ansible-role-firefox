@@ -1,11 +1,12 @@
 ---
 galaxy_info:
-  author: basvandenbrink
+  author: staticdev
   role_name: firefox
   description: "Create and configure Firefox profiles and download extensions."
   license: GPLv2
   min_ansible_version: 2.0
   platforms:
+    - name: Debian
     - name: Fedora
   galaxy_tags:
     - workstation
