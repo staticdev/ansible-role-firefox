@@ -1,3 +1,4 @@
+---
 - name: Configure profiles
   include_tasks: configure_profile.yml
   with_dict: "{{ firefox_profiles }}"
