@@ -1,0 +1,26 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    firefox_profiles:
+      default:
+        extensions:
+          - ublock-origin
+
+  pre_tasks:
+    - name: Update apt cache.
+      ansible.builtin.apt: update_cache=yes cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+
+    - name: Ensures dependencies are installed
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+      when: ansible_os_family == 'Debian'
+      with_items:
+        - firefox-esr
+        - python3-requests
+
+
+  roles:
+    - staticdev.firefox
