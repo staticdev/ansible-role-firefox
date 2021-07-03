@@ -44,7 +44,7 @@ The `firefox_profiles` is object with profile names als fields. For each profile
           datareporting.healthreport.uploadEnabled: "false"
 
   roles:
-     - basvandenbrink.firefox
+    - basvandenbrink.firefox
 ```
 
 ## Credits
