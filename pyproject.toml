@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "Ansible role to configure Firefox."
 authors = ["staticdev <staticdev-support@protonmail.com>"]
 license = "MIT"
-readme = "README.md"
+readme = "README.rst"
 
 [tool.poetry.dependencies]
 
