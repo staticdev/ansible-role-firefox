@@ -1,6 +1,12 @@
 Ansible role: Firefox
 =====================
 
+|Tests|
+
+.. |Tests| image:: https://github.com/staticdev/ansible-role-firefox/workflows/Tests/badge.svg
+   :target: https://github.com/staticdev/ansible-role-firefox/actions?workflow=Tests
+   :alt: Tests
+
 Installs Firefox_ and optionally creates profiles with extensions.
 Extensions are installed but need to be manually enabled from Firefox.
 
