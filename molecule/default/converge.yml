@@ -12,13 +12,22 @@
       ansible.builtin.apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
 
-    - name: Ensures dependencies are installed
+    - name: Ensures Debian dependencies are installed
       ansible.builtin.apt:
         name: "{{ item }}"
         state: present
       when: ansible_distribution == 'Debian'
       with_items:
         - firefox-esr
+        - python3-requests
+
+    - name: Ensures Ubuntu dependencies are installed
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+      when: ansible_distribution == 'Ubuntu'
+      with_items:
+        - firefox
         - python3-requests
 
   tasks:
