@@ -46,6 +46,7 @@ jobs:
           - debian11
           - debian10
           - ubuntu2004
+          - fedora34
 
     steps:
       - name: Check out the repository
