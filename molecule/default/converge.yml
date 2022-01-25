@@ -16,7 +16,7 @@
       ansible.builtin.apt:
         name: "{{ item }}"
         state: present
-      when: ansible_os_family == 'Debian'
+      when: ansible_distribution == 'Debian'
       with_items:
         - firefox-esr
         - python3-requests
