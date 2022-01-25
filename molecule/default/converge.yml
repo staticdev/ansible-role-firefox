@@ -21,6 +21,7 @@
         - firefox-esr
         - python3-requests
 
-
-  roles:
-    - staticdev.firefox
+  tasks:
+    - name: "Include staticdev.firefox"
+      include_role:
+        name: "staticdev.firefox"
