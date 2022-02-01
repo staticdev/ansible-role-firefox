@@ -30,15 +30,6 @@
         - firefox
         - python3-requests
 
-    - name: Ensure Fedora dependencies are installed
-      ansible.builtin.package:
-        name: "{{ item }}"
-        state: present
-      when: ansible_distribution == 'Fedora'
-      with_items:
-        - firefox
-        - python3-requests
-
   tasks:
     - name: "Include staticdev.firefox"
       include_role:
