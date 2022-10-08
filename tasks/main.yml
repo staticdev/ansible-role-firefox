@@ -1,6 +1,6 @@
 ---
 - name: Configure profiles
-  include_tasks: configure_profile.yml
+  ansible.builtin.include_tasks: configure_profile.yml
   with_dict: "{{ firefox_profiles }}"
   loop_control:
     loop_var: firefox_profile
