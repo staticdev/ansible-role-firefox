@@ -5,8 +5,18 @@ galaxy_info:
   description: "Create and configure Firefox profiles and download extensions."
   license: GPLv2
   min_ansible_version: "2.11"
+
   platforms:
     - name: Debian
+      versions:
+        - bullseye
+        - buster
+
+    - name: Ubuntu
+      versions:
+        # - jammy
+        - focal
+
   galaxy_tags:
     - workstation
     - system
