@@ -1,4 +1,9 @@
 ---
+- name: Install Firefox
+  ansible.builtin.package:
+    name: firefox-esr
+    state: present
+
 - name: Configure profiles
   ansible.builtin.include_tasks: configure_profile.yml
   with_dict: "{{ firefox_profiles }}"
