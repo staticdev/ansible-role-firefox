@@ -1,4 +1,20 @@
 ---
+- name: Load vars
+  ansible.builtin.include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ansible_distribution}}.yml"
+        - "{{ansible_os_family}}.yml"
+        - default.yml
+      paths:
+        - "vars"
+
+- name: Install Firefox
+  ansible.builtin.package:
+    name: "{{ firefox_package_name }}"
+    state: present
+
 - name: Configure profiles
   ansible.builtin.include_tasks: configure_profile.yml
   with_dict: "{{ firefox_profiles }}"
