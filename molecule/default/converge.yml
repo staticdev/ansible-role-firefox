@@ -20,7 +20,6 @@
         state: present
       when: ansible_distribution == 'Debian'
       with_items:
-        - firefox-esr
         - python3-requests
 
     - name: Ensure Ubuntu dependencies are installed
@@ -29,7 +28,6 @@
         state: present
       when: ansible_distribution == 'Ubuntu'
       with_items:
-        - firefox
         - python3-requests
 
   tasks:

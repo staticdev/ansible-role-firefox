@@ -1,7 +1,7 @@
 ---
 - name: Install Firefox
   ansible.builtin.package:
-    name: firefox-esr
+    name: "{{ firefox_package_name }}"
     state: present
 
 - name: Configure profiles
