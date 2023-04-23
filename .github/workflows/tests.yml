@@ -43,15 +43,11 @@ jobs:
     strategy:
       matrix:
         distro:
-          # Bullseye
-          - debian11
-          # Buster
-          - debian10
-          # Jammy
-          - ubuntu2204
+          - debian11  # Bullseye
+          - debian10  # Buster
+          - ubuntu2204  # Jammy
           # https://github.com/geerlingguy/docker-ubuntu2204-ansible/issues/6
-          # Focal
-          - ubuntu2004
+          - ubuntu2004  # Focal
           - fedora38
           - fedora37
           - centos8
