@@ -10,6 +10,7 @@ Extensions are installed but need to be manually enabled from Firefox.
 ## Requirements
 
 [requests] is required on the remote host to install extensions.
+The OS of the remote host is supported, see [ansible-galaxy staticdev/firefox].
 
 ## Role Variables
 
@@ -68,3 +69,4 @@ This Ansible role is a modified version of the [ansible-firefox] originally crea
 [requests]: https://docs.python-requests.org/en/master
 [staticdev]: https://github.com/staticdev
 [unrblt]: https://github.com/unrblt
+[ansible-galaxy staticdev/firefox]: https://galaxy.ansible.com/staticdev/firefox

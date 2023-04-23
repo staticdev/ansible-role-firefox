@@ -17,6 +17,44 @@ galaxy_info:
         # - jammy
         - focal
 
+    - name: Nobara
+      versions:
+        - "37"
+        - "36"
+
+    - name: Fedora
+      versions:
+        - "39" # rawhide
+        - "38"
+        - "37"
+        - "36"
+
+    - name: Oracle Linux
+      versions:
+        - "9"
+        - "8"
+        - "7"
+
+    - name: Rocky Linux
+      versions:
+        - "9"
+        - "8"
+
+    - name: Alma Linux
+      versions:
+        - "9"
+        - "8"
+
+    - name: CentOS
+      versions:
+        - "7"
+        - "8"
+
+    - name: CentOS Stream
+      versions:
+        - "9"
+        - "8"
+
   galaxy_tags:
     - workstation
     - system
