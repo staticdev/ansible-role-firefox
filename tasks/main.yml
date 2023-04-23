@@ -14,6 +14,7 @@
   ansible.builtin.package:
     name: "{{ firefox_package_name }}"
     state: present
+  become: true
 
 - name: Configure profiles
   ansible.builtin.include_tasks: configure_profile.yml
