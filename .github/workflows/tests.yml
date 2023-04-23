@@ -45,8 +45,8 @@ jobs:
         distro:
           - debian11  # Bullseye
           - debian10  # Buster
-          - ubuntu2204  # Jammy
           # https://github.com/geerlingguy/docker-ubuntu2204-ansible/issues/6
+          # - ubuntu2204  # Jammy
           - ubuntu2004  # Focal
           - fedora38
           - fedora37
