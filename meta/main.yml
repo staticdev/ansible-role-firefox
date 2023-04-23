@@ -11,49 +11,39 @@ galaxy_info:
       versions:
         - bullseye
         - buster
+        - stretch
+        - jessie
 
     - name: Ubuntu
       versions:
-        # - jammy
+        - jammy
         - focal
-
-    - name: Nobara
-      versions:
-        - "37"
-        - "36"
+        - bionic
+        - xenial
+        - trusty # archive
+        - precise # archive
 
     - name: Fedora
       versions:
-        - "39" # rawhide
         - "38"
         - "37"
         - "36"
+        - "35"
+        - "33"
+        - "34"
+        - "32"
+        - "31"
+        - "30"
+        - "29"
+        - "27"
+        - "24" # archive
 
-    - name: Oracle Linux
+    - name: EL
       versions:
         - "9"
         - "8"
         - "7"
-
-    - name: Rocky Linux
-      versions:
-        - "9"
-        - "8"
-
-    - name: Alma Linux
-      versions:
-        - "9"
-        - "8"
-
-    - name: CentOS
-      versions:
-        - "7"
-        - "8"
-
-    - name: CentOS Stream
-      versions:
-        - "9"
-        - "8"
+        - "6"
 
   galaxy_tags:
     - workstation

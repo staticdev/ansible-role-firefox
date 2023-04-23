@@ -43,11 +43,34 @@ jobs:
     strategy:
       matrix:
         distro:
-          - debian11
-          - debian10
+          - debian11 # Bullseye
+          - debian10 # Buster
+          - debian9 # Stretch
+          - debian8 # Jessie
+          - ubuntu2204 # Jammy
           # https://github.com/geerlingguy/docker-ubuntu2204-ansible/issues/6
-          # - ubuntu2204
-          - ubuntu2004
+          - ubuntu2004 # Focal
+          - ubuntu1804 # Bionic
+          - ubuntu1604 # Xenial
+          - ubuntu1404 # Trusty  # archive
+          - ubuntu1204 # Precise # archive
+          - fedora38
+          - fedora37
+          - fedora36
+          - fedora35
+          - fedora33
+          - fedora34
+          - fedora32
+          - fedora31
+          - fedora30
+          - fedora29
+          - fedora27
+          - fedora24 # archive
+          - centos8
+          - centos7
+          - centos6
+          - rockylinux9
+          - rockylinux8
 
     steps:
       - name: Check out the repository
