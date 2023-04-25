@@ -19,10 +19,10 @@ galaxy_info:
 
     - name: Fedora
       versions:
-        # yamllint disable rule_id=schema[meta]
+        # yamllint disable
         - "38"
         - "37"
-        # yamllint enable rule_id=schema[meta]
+        # yamllint enable
 
     - name: EL
       versions:
