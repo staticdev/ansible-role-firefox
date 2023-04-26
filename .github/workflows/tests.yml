@@ -29,7 +29,7 @@ jobs:
           python-version: "3.10"
 
       - name: Install test dependencies
-        # TODO: WWhen there is an ansible-lint release above 6.15.0 constrain it and install it through PyPI
+        # TODO: When there is an ansible-lint release above 6.15.0 constrain it and install it through PyPI
         run: pip install --constraint=.github/workflows/constraints.txt ansible yamllint git+https://github.com/ansible/ansible-lint
 
       - name: Lint code
