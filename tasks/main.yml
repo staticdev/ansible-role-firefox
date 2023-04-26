@@ -16,6 +16,16 @@
     state: present
   become: true
 
+- name: Gather the package facts
+  ansible.builtin.package_facts:
+  when: "ansible_distribution == 'Ubuntu'"
+
+- name: Install Firefox for ubuntu2204+ using apt
+  ansible.builtin.include_tasks: apt-ubuntu2204+.yml
+  when: "ansible_distribution == 'Ubuntu' and 'snap' in ansible_facts.packages['firefox'][0].version"
+
+# TODO: Add install option for ubuntu2204+ using snap
+
 - name: Configure profiles
   ansible.builtin.include_tasks: configure_profile.yml
   with_dict: "{{ firefox_profiles }}"

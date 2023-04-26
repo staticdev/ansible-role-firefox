@@ -9,6 +9,8 @@ platforms:
     command: ${MOLECULE_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # https://github.com/geerlingguy/docker-ubuntu2204-ansible/issues/6
+      - ${MOLECULE_SCENARIO_DIRECTORY}/daemon.json:/etc/docker/daemon.json
     privileged: true
     pre_build_image: true
 provisioner:

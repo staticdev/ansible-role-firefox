@@ -1,0 +1,46 @@
+---
+# https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
+
+- name: Install dirmngr
+  ansible.builtin.package:
+    name: dirmngr
+    state: present
+  become: true
+
+- name: Add Mozilla Firefox PPA Repository
+  ansible.builtin.apt_repository:
+    repo: ppa:mozillateam/ppa
+  become: true
+
+- name: Configure Mozilla Firefox PPA priority
+  ansible.builtin.copy:
+    dest: /etc/apt/preferences.d/mozilla-firefox
+    content: |
+      Package: *
+      Pin: release o=LP-PPA-mozillateam
+      Pin-Priority: 1001
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+# - name: Configure unattended upgrades for Mozilla Firefox PPA
+#   ansible.builtin.copy:
+#     dest: /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+#     content: |
+#       Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:{{ ansible_distribution_codename }}";
+#     owner: root
+#     group: root
+#     mode: '0444'
+#   become: true
+
+- name: Gather the package facts
+  ansible.builtin.package_facts:
+
+- name: Install Firefox
+  ansible.builtin.apt:
+    name: "{{ firefox_package_name }}"
+    state: latest
+    allow_downgrade: true
+  become: true
+  when: "'snap' in ansible_facts.packages['firefox'][0].version"

@@ -14,15 +14,13 @@ galaxy_info:
 
     - name: Ubuntu
       versions:
-        # - jammy
+        - jammy
         - focal
 
     - name: Fedora
       versions:
-        # yamllint disable
         - "38"
         - "37"
-        # yamllint enable
 
     - name: EL
       versions:
