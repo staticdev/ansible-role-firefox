@@ -40,7 +40,7 @@
 - name: Install Firefox
   ansible.builtin.apt:
     name: "{{ firefox_package_name }}"
-    state: latest
+    state: present
     allow_downgrade: true
   become: true
   when: "'snap' in ansible_facts.packages['firefox'][0].version"
