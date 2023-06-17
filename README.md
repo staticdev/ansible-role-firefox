@@ -52,7 +52,7 @@ The **firefox_profiles** is object with profile names als fields. For each profi
 
 ## License
 
-GPLv2
+MIT
 
 ## Author Information
 
