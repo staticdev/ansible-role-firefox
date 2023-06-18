@@ -34,6 +34,7 @@
           Pin-Priority: 1001
         dest: /etc/apt/preferences.d/mozilla-firefox
         mode: 0644
+      become: true
 
 - name: Install Firefox
   ansible.builtin.package:
