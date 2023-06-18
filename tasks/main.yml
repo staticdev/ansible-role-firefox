@@ -24,6 +24,7 @@
       ansible.builtin.apt_repository:
         repo: ppa:mozillateam/ppa
         codename: "{{ ansible_distribution_release }}"
+      become: true
 
     - name: Create apt preferences file for Mozilla Firefox
       ansible.builtin.copy:
