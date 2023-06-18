@@ -4,8 +4,10 @@
 
 [tests]: https://github.com/staticdev/ansible-role-firefox/actions?workflow=Tests
 
-Installs [Firefox] and optionally creates profiles with extensions.
+Installs [Firefox] from official PPA repository and optionally creates profiles with extensions.
 Extensions are installed but need to be manually enabled from Firefox.
+
+Note: on Debian it will remove the ESR version in favor to PPA more up-to-date releases.
 
 ## Requirements
 
