@@ -47,6 +47,11 @@ jobs:
           - debian11
           - ubuntu2204
           - ubuntu2004
+          - fedora38
+          - fedora37
+          - centos8
+          - rockylinux9
+          - rockylinux8
 
     steps:
       - name: Check out the repository

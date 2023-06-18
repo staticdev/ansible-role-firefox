@@ -9,24 +9,28 @@
     - name: Set ansible_distribution for Debian
       ansible.builtin.set_fact:
         ansible_distribution_release: "focal"
-- name: Install required package for adding repository
-  ansible.builtin.package:
-    name: dirmngr
-    state: present
 
-- name: Add Mozilla Firefox PPA repository
-  ansible.builtin.apt_repository:
-    repo: ppa:mozillateam/ppa
-    codename: "{{ ansible_distribution_release }}"
+- name: Debian-family specific tasks
+  when: ansible_os_family | lower == "debian"
+  block:
+    - name: Install required package for adding repository
+      ansible.builtin.package:
+        name: dirmngr
+        state: present
 
-- name: Create apt preferences file for Mozilla Firefox
-  ansible.builtin.copy:
-    content: |
-      Package: *
-      Pin: release o=LP-PPA-mozillateam
-      Pin-Priority: 1001
-    dest: /etc/apt/preferences.d/mozilla-firefox
-    mode: 0644
+    - name: Add Mozilla Firefox PPA repository
+      ansible.builtin.apt_repository:
+        repo: ppa:mozillateam/ppa
+        codename: "{{ ansible_distribution_release }}"
+
+    - name: Create apt preferences file for Mozilla Firefox
+      ansible.builtin.copy:
+        content: |
+          Package: *
+          Pin: release o=LP-PPA-mozillateam
+          Pin-Priority: 1001
+        dest: /etc/apt/preferences.d/mozilla-firefox
+        mode: 0644
 
 - name: Install Firefox
   ansible.builtin.package:
