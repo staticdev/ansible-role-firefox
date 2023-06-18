@@ -12,6 +12,7 @@ Note: on Debian it will remove the ESR version in favor to PPA more up-to-date r
 ## Requirements
 
 [requests] is required on the remote host to install extensions.
+The OS of the remote host is supported, see [ansible-galaxy staticdev/firefox].
 
 ## Role Variables
 
@@ -65,6 +66,7 @@ MIT
 This Ansible role is a modified version of the [ansible-firefox] originally created by GitHub user [unrblt] and modified by [basvandenbrink].
 
 [ansible-firefox]: https://github.com/basvandenbrink/ansible-firefox
+[ansible-galaxy staticdev/firefox]: https://galaxy.ansible.com/staticdev/firefox
 [basvandenbrink]: https://github.com/basvandenbrink
 [firefox]: https://www.mozilla.org/firefox/
 [requests]: https://docs.python-requests.org/en/master

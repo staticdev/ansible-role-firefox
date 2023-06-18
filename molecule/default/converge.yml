@@ -14,19 +14,10 @@
         cache_valid_time: 600
       when: ansible_os_family == 'Debian'
 
-    - name: Ensure Debian dependencies are installed
-      ansible.builtin.apt:
+    - name: Ensure dependencies are installed
+      ansible.builtin.package:
         name: "{{ item }}"
         state: present
-      when: ansible_distribution == 'Debian'
-      with_items:
-        - python3-requests
-
-    - name: Ensure Ubuntu dependencies are installed
-      ansible.builtin.apt:
-        name: "{{ item }}"
-        state: present
-      when: ansible_distribution == 'Ubuntu'
       with_items:
         - python3-requests
 

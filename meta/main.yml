@@ -17,6 +17,16 @@ galaxy_info:
         - jammy
         - focal
 
+    - name: Fedora
+      versions:
+        - "38"
+        - "37"
+
+    - name: EL
+      versions:
+        - "9"
+        - "8"
+
   galaxy_tags:
     - workstation
     - system
