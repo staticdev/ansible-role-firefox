@@ -18,6 +18,7 @@
       ansible.builtin.package:
         name: dirmngr
         state: present
+      become: true
 
     - name: Add Mozilla Firefox PPA repository
       ansible.builtin.apt_repository:
