@@ -4,6 +4,8 @@
 
 [tests]: https://github.com/staticdev/ansible-role-firefox/actions?workflow=Tests
 
+**DEPRECATED: this project is not maintained anymore in favor direct installation with [nix package manager](https://nixos.wiki/wiki/Nix_package_manager) and [Nixpkgs](https://github.com/NixOS/nixpkgs).**
+
 Installs [Firefox] from official PPA repository and optionally creates profiles with extensions.
 Extensions are installed but need to be manually enabled from Firefox.
 
